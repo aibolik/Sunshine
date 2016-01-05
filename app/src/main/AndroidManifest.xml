@@ -34,6 +34,10 @@
             android:label="@string/title_activity_settings">
 
         </activity>
+
+        <provider
+            android:name=".data.WeatherProvider"
+            android:authorities="kz.aibol.sunshine" />
     </application>
 
 </manifest>
