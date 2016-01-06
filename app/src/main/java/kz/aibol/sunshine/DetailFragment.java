@@ -2,9 +2,8 @@ package kz.aibol.sunshine;
 
 import android.content.Intent;
 import android.database.Cursor;
-import android.net.Uri;
-import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
@@ -70,7 +69,7 @@ public class DetailFragment extends Fragment implements LoaderManager.LoaderCall
 
         mShareActionProvider = (ShareActionProvider) MenuItemCompat.getActionProvider(item);
 
-        if(mForecastStr != null) {
+        if (mForecastStr != null) {
             mShareActionProvider.setShareIntent(createShareForecastIntent());
         }
     }
@@ -94,7 +93,7 @@ public class DetailFragment extends Fragment implements LoaderManager.LoaderCall
         Log.v(LOG_TAG, "In onCreateLoader");
 
         Intent intent = getActivity().getIntent();
-        if(intent == null) {
+        if (intent == null) {
             return null;
         }
 
@@ -112,7 +111,7 @@ public class DetailFragment extends Fragment implements LoaderManager.LoaderCall
     public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
         Log.v(LOG_TAG, "In onLoadFinished");
 
-        if(!data.moveToFirst()) {
+        if (!data.moveToFirst()) {
             return;
         }
 
@@ -131,7 +130,7 @@ public class DetailFragment extends Fragment implements LoaderManager.LoaderCall
         TextView detailTextView = (TextView) getView().findViewById(R.id.detail_text);
         detailTextView.setText(mForecastStr);
 
-        if(mShareActionProvider != null) {
+        if (mShareActionProvider != null) {
             mShareActionProvider.setShareIntent(createShareForecastIntent());
         }
     }
