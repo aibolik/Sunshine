@@ -37,7 +37,17 @@
 
         <provider
             android:name=".data.WeatherProvider"
-            android:authorities="kz.aibol.sunshine" />
+            android:authorities="kz.aibol.sunshine"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="kz.aibol.sunshine.ACCESS_WEATHER_DATA"/>
     </application>
+
+    <permission
+        android:name="kz.aibol.sunshine.ACCESS_WEATHER_DATA"
+        android:label="Access to weather data"
+        android:protectionLevel="dangerous">
+
+    </permission>
 
 </manifest>
