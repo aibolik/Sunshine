@@ -4,6 +4,11 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
 
+    <permission
+        android:name="kz.aibol.sunshine.ACCESS_WEATHER_DATA"
+        android:label="Access to weather data"
+        android:protectionLevel="dangerous"></permission>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -31,8 +36,8 @@
         <activity
             android:name=".SettingsActivity"
             android:label="@string/title_activity_settings"
-            android:theme="@style/MySettingsTheme"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/MySettingsTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
@@ -44,13 +49,10 @@
             android:enabled="true"
             android:exported="true"
             android:permission="kz.aibol.sunshine.ACCESS_WEATHER_DATA" />
+
+        <service
+            android:name=".service.SunshineService"
+            android:exported="false"></service>
     </application>
-
-    <permission
-        android:name="kz.aibol.sunshine.ACCESS_WEATHER_DATA"
-        android:label="Access to weather data"
-        android:protectionLevel="dangerous">
-
-    </permission>
 
 </manifest>
