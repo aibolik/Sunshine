@@ -1,8 +1,10 @@
 package kz.aibol.sunshine.service;
 
 import android.app.IntentService;
+import android.content.BroadcastReceiver;
 import android.content.ContentUris;
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
@@ -22,12 +24,13 @@ import java.net.URL;
 import java.util.Vector;
 
 import kz.aibol.sunshine.BuildConfig;
+import kz.aibol.sunshine.Utility;
 import kz.aibol.sunshine.data.WeatherContract;
 
 /**
  * An {@link IntentService} subclass for handling asynchronous task requests in
  * a service on a separate handler thread.
- * <p/>
+ * <p>
  * TODO: Customize class - update intent actions, extra parameters and static
  * helper methods.
  */
@@ -131,7 +134,7 @@ public class SunshineService extends IntentService {
     /**
      * Take the String representing the complete forecast in JSON Format and
      * pull out the data we need to construct the Strings needed for the wireframes.
-     * <p/>
+     * <p>
      * Fortunately parsing is easy:  constructor takes the JSON string and converts it
      * into an Object hierarchy for us.
      */
@@ -314,6 +317,16 @@ public class SunshineService extends IntentService {
         locationCursor.close();
 
         return locationId;
+    }
+
+    static public class AlarmReceiver extends BroadcastReceiver {
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            Intent sendIntent = new Intent(context, SunshineService.class);
+            sendIntent.putExtra(SunshineService.LOCATION_QUERY_EXTRA, Utility.getPreferredLocation(context));
+            context.startService(sendIntent);
+        }
     }
 
 }

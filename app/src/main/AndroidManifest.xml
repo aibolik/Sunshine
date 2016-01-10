@@ -50,9 +50,9 @@
             android:exported="true"
             android:permission="kz.aibol.sunshine.ACCESS_WEATHER_DATA" />
 
-        <service
-            android:name=".service.SunshineService"
-            android:exported="false"></service>
+        <service android:name=".service.SunshineService" />
+        <receiver android:name=".service.SunshineService$AlarmReceiver" />
+
     </application>
 
 </manifest>
