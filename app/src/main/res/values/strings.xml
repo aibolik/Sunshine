@@ -57,4 +57,8 @@
     <!-- Humidity format CHAR LIMIT=25]-->
     <string name="format_humidity">Humidity: <xliff:g id="humidity">%1.0f</xliff:g> %%</string>
 
+    <!-- SyncAdapter related -->
+    <string name="sync_account_type">sunshine.aibol.kz</string>
+    <string name="content_authority">kz.aibol.sunshine</string>
+
 </resources>
