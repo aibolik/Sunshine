@@ -26,6 +26,13 @@
     <string name="pref_units_metric">metric</string>
     <!--Value in SharedPreferences for imperial temperature unit option-->
     <string name="pref_units_imperial">imperial</string>
+    <!--Label for the Notification Settings-->
+    <string name="pref_enable_notifications_label">Weather Notifications</string>
+    <!--Key name for storing Notification Setting-->
+    <string name="pref_enable_notifications_key" translatable="false">enable_notifications</string>
+    <string name="pref_enable_notifications_true">Enabled</string>
+    <string name="pref_enable_notifications_false">Not Enabled</string>
+    <string name="pref_enable_notifications_default" translatable="false">true</string>
     <!-- [END] Strings related to Settings -->
 
     <!-- Date label when displaying today's weather forecast [CHAR LIMIT=20] -->
