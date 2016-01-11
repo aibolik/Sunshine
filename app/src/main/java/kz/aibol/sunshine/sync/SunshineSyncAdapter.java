@@ -332,17 +332,21 @@ public class SunshineSyncAdapter extends AbstractThreadedSyncAdapter {
                 cVVector.add(weatherValues);
             }
 
-            int inserted = 0;
             // add to database
             if (cVVector.size() > 0) {
                 // Student: call bulkInsert to add the weatherEntries to the database here
                 ContentValues[] cvArray = new ContentValues[cVVector.size()];
                 cVVector.toArray(cvArray);
-                inserted = getContext().getContentResolver().bulkInsert(WeatherContract.WeatherEntry.CONTENT_URI, cvArray);
+                getContext().getContentResolver().bulkInsert(WeatherContract.WeatherEntry.CONTENT_URI, cvArray);
+
+                // delete old data, more than 1 day
+                getContext().getContentResolver().delete(WeatherContract.WeatherEntry.CONTENT_URI,
+                        WeatherContract.WeatherEntry.COLUMN_DATE + " <= ?",
+                        new String[]{Long.toString(dayTime.setJulianDay(julianStartDay - 1))});
                 notifyWeather();
             }
 
-            Log.d(LOG_TAG, "FetchWeatherTask Complete. " + inserted + " Inserted");
+            Log.d(LOG_TAG, "Sync Complete. " + cVVector.size() + " Inserted");
 
         } catch (JSONException e) {
             Log.e(LOG_TAG, e.getMessage(), e);
