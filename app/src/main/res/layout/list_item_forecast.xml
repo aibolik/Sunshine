@@ -2,9 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="54dp"
     android:gravity="center_vertical"
-    android:minHeight="54dp"
     android:orientation="horizontal"
     android:paddingLeft="16dp"
     android:paddingStart="16dp"
@@ -13,8 +12,8 @@
     android:background="#424242">
 
     <FrameLayout
-        android:layout_width="40dp"
-        android:layout_height="wrap_content">
+        android:layout_width="30dp"
+        android:layout_height="30dp">
         <ImageView
             android:id="@+id/list_item_icon"
             android:layout_width="wrap_content"
@@ -29,7 +28,7 @@
         android:layout_height="wrap_content"
         android:paddingLeft="16dp"
         android:paddingStart="16dp"
-        android:layout_weight="1"
+        android:layout_weight="2"
         android:orientation="vertical">
 
         <com.devspark.robototextview.widget.RobotoTextView
@@ -54,33 +53,36 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_weight="1">
 
         <com.devspark.robototextview.widget.RobotoTextView
             android:id="@+id/list_item_high_textview"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:layout_gravity="center_vertical"
             app:typeface="roboto_medium"
             android:textSize="30sp"
             android:textColor="@color/white"
 
-            android:text="18°"/>
+            android:text="18°"
+            android:gravity="right"
+            android:layout_weight="1" />
 
         <com.devspark.robototextview.widget.RobotoTextView
             android:id="@+id/list_item_low_textview"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginLeft="8dp"
-            android:layout_marginStart="8dp"
+            android:layout_gravity="center_vertical"
             app:typeface="roboto_medium"
             android:textSize="24sp"
             android:textColor="#b2ffffff"
 
-            android:text="12°"/>
+            android:text="12°"
+            android:layout_weight="1"
+            android:gravity="right" />
     </LinearLayout>
 
 </LinearLayout>
