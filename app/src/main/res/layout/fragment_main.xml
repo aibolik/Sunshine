@@ -10,7 +10,7 @@
         style="@style/ForecastListStyle"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:divider="@null">
+        android:divider="#1e000000">
 
     </ListView>
 

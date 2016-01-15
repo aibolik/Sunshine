@@ -1,67 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/today_touch_selector"
-    android:gravity="center_vertical"
-    android:minHeight="?android:attr/listPreferredItemHeight"
-    android:orientation="horizontal">
+    android:background="@drawable/almaty_small"
+    android:minHeight="360dp"
+    android:padding="16dp">
 
-    <LinearLayout
-        android:layout_width="0dp"
+    <RelativeLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:layout_marginLeft="60dp"
-        android:layout_marginTop="16dp"
-        android:layout_weight="7"
-        android:orientation="vertical">
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="56dp"
+        android:layout_marginStart="56dp">
 
-        <TextView
+        <com.devspark.robototextview.widget.RobotoTextView
+            xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/list_item_date_textview"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-condensed"
-            android:textAppearance="?android:textAppearanceLarge"
-            android:textColor="@color/white" />
+            app:typeface="roboto_medium"
+            android:textColor="@color/white"
+            android:textSize="24sp"
 
-        <TextView
+            android:text="Бүгін, 19 қаңтар"/>
+
+        <com.devspark.robototextview.widget.RobotoTextView
             android:id="@+id/list_item_high_textview"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-condensed"
+            android:layout_below="@+id/list_item_date_textview"
+            app:typeface="roboto_light"
             android:textColor="@color/white"
-            android:textSize="72sp" />
+            android:textSize="72sp"
 
-        <TextView
+            android:text="20°"/>
+
+        <com.devspark.robototextview.widget.RobotoTextView
             android:id="@+id/list_item_low_textview"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
+            android:layout_below="@id/list_item_high_textview"
             android:textColor="@color/white"
-            android:textSize="36sp" />
-    </LinearLayout>
+            android:textSize="48sp"
+            app:typeface="roboto_light"
 
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="16dp"
-        android:layout_weight="5"
-        android:gravity="center_horizontal|bottom"
-        android:orientation="vertical">
+            android:text="13°"/>
 
-        <ImageView
-            android:id="@+id/list_item_icon"
+        <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal" />
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/list_item_date_textview"
+            android:layout_toEndOf="@+id/list_item_date_textview">
 
-        <TextView
-            android:id="@+id/list_item_forecast_textview"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-condensed"
-            android:textAppearance="?android:textAppearanceLarge"
-            android:textColor="@color/white" />
-    </LinearLayout>
+            <ImageView
+                android:id="@+id/list_item_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
 
-</LinearLayout>
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/art_clear" />
+
+            <com.devspark.robototextview.widget.RobotoTextView
+                android:id="@+id/list_item_forecast_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/list_item_icon"
+                android:layout_centerInParent="true"
+                app:typeface="roboto_medium"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="16dp"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+
+                android:text="Күн ашық" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+
+</FrameLayout>
