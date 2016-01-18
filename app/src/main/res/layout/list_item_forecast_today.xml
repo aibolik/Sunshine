@@ -45,7 +45,7 @@
             android:textColor="@color/white"
             android:textSize="48sp"
             app:typeface="roboto_light"
-
+            
             android:text="13°"/>
 
         <RelativeLayout
