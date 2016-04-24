@@ -17,6 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import kz.aibol.sunshine.data.WeatherContract;
 import kz.aibol.sunshine.sync.SunshineSyncAdapter;
@@ -166,6 +167,7 @@ public class ForecastFragment extends Fragment implements LoaderManager.LoaderCa
         if(mPosition != ListView.INVALID_POSITION) {
             mListView.smoothScrollToPosition(mPosition);
         }
+        updateEmptyView();
     }
 
     public void setUseTodayLayout(boolean useTodayLayout) {
@@ -216,4 +218,18 @@ public class ForecastFragment extends Fragment implements LoaderManager.LoaderCa
 
         }
     }
+
+    private void updateEmptyView() {
+        if(mForecastAdapter.getCount() == 0) {
+            TextView tv = (TextView) getView().findViewById(R.id.listview_forecast_empty);;
+            if(tv != null) {
+                int message = R.string.empty_forecast_list;
+                if(!Utility.isNetworkAvailable(getActivity())) {
+                    message = R.string.empty_forecast_list_no_network;
+                }
+                tv.setText(message);
+            }
+        }
+    }
+
 }

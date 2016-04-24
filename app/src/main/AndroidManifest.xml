@@ -9,6 +9,10 @@
     <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS" />
     <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
 
+    <!--Permissions required to make our UI more friendly-->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+
     <permission
         android:name="kz.aibol.sunshine.ACCESS_WEATHER_DATA"
         android:label="Access to weather data"
